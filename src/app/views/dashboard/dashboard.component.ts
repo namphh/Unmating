@@ -181,8 +181,29 @@ export class DashboardComponent implements OnInit {
               max: Math.max(...singleDataSet) * 1.1,
             },
           },
+          plugins: {
+            zoom: {
+              zoom: {
+                wheel: {
+                  enabled: true,
+                },
+                pinch: {
+                  enabled: true,
+                },
+                mode: 'x' as const,
+              },
+              pan: {
+                enabled: true,
+                mode: 'x' as const,
+              },
+            },
+            legend: {
+              display: false, // Hides the legend
+            },
+          },
         },
       };
+      
     
       if (chartData.data && chartData.data.datasets && chartData.data.datasets.length > 0) {
         const dataset = chartData.data.datasets[0].data as (number | null)[];
