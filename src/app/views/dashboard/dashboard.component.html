@@ -1,0 +1,40 @@
+<!-- Title -->
+<div class="title-container text-center mb-4">
+  <h1 class="title-text">TỔNG QUAN</h1>
+</div>
+
+<!-- Buttons to control auto-append, manual chart addition, delete, and export -->
+<div class="mb-4 text-center">
+  <button (click)="deleteCharts()" class="btn btn-warning mx-2">Xóa biểu đồ</button>
+  <button (click)="exportExcel()" class="btn btn-info mx-2">Xuất báo cáo</button>
+  <button (click)="saveChartAsImage()" class="btn btn-secondary mx-2">Lưu ảnh</button> <!-- New Save Image button -->
+</div>
+
+<!-- Horizontal scrollable row for charts -->
+<div #chartContainer class="chart-container d-flex" style="overflow-x: scroll; white-space: nowrap;">
+  <div *ngFor="let chartData of displayedCharts; let i = index" class="chart-item" style="min-width: 600px; margin-right: 16px;">
+    <c-card class="mb-4">
+      <c-card-body>
+        <c-row>
+          <c-col sm="12">
+            <!-- Fmax text above the chart -->
+            <h4 class="card-title mb-0 text-center font-weight-bold">Fmax = {{ chartData.maxValue }}</h4>
+          </c-col>
+        </c-row>
+        <c-chart
+          [data]="chartData.data"
+          [height]="300"
+          [width]="550"
+          [ngStyle]="{ 'marginTop.px': 20 }"
+          [options]="chartData.options"
+          [type]="'line'"
+        >
+        </c-chart>
+        <div class="text-center mt-3">
+          <!-- Cycle text below the chart -->
+          Cycle {{ i + 1 }}
+        </div>
+      </c-card-body>
+    </c-card>
+  </div>
+</div>

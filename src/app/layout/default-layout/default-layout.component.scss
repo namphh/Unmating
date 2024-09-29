@@ -1,0 +1,34 @@
+.sidebar-header-custom {
+  background-color: white; /* Màu nền trắng */
+  display: flex;
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  height: 50px; /* Chiều cao của header */
+  padding: 10px;
+}
+
+.sidebar-brand {
+  display: flex;
+  justify-content: center; /* Căn giữa nội dung bên trong sidebar-brand */
+  align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.sidebar-brand-full {
+  max-width: 100%; /* Đảm bảo logo co dãn tốt */
+  height: 35px; /* Chiều cao logo */
+}
+
+.sidebar-brand-narrow {
+  display: none; /* Ẩn logo hẹp */
+}
+
+/* Media query cho màn hình nhỏ hơn hoặc sidebar thu nhỏ */
+@media (max-width: 768px) {
+  .sidebar-brand-narrow {
+    display: block; /* Hiện logo hẹp khi sidebar thu nhỏ */
+  }
+
+  .sidebar-brand-full {
+    display: none; /* Ẩn logo đầy đủ khi sidebar thu nhỏ */
+  }
+}
